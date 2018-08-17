@@ -1,2 +1,3 @@
-li.todos__item
+li class=(todo.completed? ? 'todos__item--completed' : 'todos__item')
   h4 = todo.title
+  = button_to 'Mark complete', todo_completion_path(todo), disabled: todo.completed?
