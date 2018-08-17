@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :authenticate, only: :create
+
   def index
     @todos = Todo.all
   end

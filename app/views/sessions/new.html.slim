@@ -1,0 +1,6 @@
+= form_for :session, url: session_path, html: { class: 'sign-in-form' } do |form|
+  .sign-in-form__group
+    = form.label :email
+    = form.text_field :email
+  .sign-in-form__group
+    = form.submit 'Sign in'

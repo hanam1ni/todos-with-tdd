@@ -1,7 +1,6 @@
-.todo-form
-  = form_for @todo do |form|
-    .todo-form__group
-      = form.label :title
-      = form.text_field :title
-    .todo-form__group
-      = form.submit 'Submit'
+= form_for @todo, html: { class: 'todo-form' } do |form|
+  .todo-form__group
+    = form.label :title
+    = form.text_field :title
+  .todo-form__group
+    = form.submit 'Submit'
