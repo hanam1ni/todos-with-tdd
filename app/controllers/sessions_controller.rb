@@ -1,10 +1,16 @@
 class SessionsController < ApplicationController
-  def new
-
-  end
+  def new; end
 
   def create
-    session[:current_email] = params[:session][:email]
+    user = User.find_or_create_by(user_params)
+    session[:current_user] = user
+
     redirect_to root_path
+  end
+
+  private
+
+  def user_params
+    params.require(:session).permit(:email)
   end
 end

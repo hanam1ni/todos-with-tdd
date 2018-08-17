@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   private
 
   def signed_in?
-    session[:current_email].present?
+    session[:current_user].present?
   end
 end
