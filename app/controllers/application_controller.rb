@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   private
 
   def signed_in?
-    session[:current_user].present?
+    current_user.present?
+  end
+
+  def current_user
+    User.find_by(id: session[:current_user_id])
   end
 end

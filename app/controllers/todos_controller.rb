@@ -2,9 +2,7 @@ class TodosController < ApplicationController
   before_action :authenticate, only: [:index, :create]
 
   def index
-    current_user = session[:current_user]['id']
-
-    @todos = Todo.where(user_id: current_user)
+    @todos = current_user.todos
   end
 
   def new
@@ -19,8 +17,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    current_user = session[:current_user]['id']
-
-    params.require(:todo).permit(:title).merge(user_id: current_user)
+    params.require(:todo).permit(:title).merge(user_id: current_user.id)
   end
 end
